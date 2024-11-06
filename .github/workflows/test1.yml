@@ -33,7 +33,7 @@ jobs:
             - create-matrix
             - consume-artifacts
         steps:
-            - run: echo hi! >> $GITHUB_SUMMARY
+            - run: echo hi! >> $GITHUB_STEP_SUMMARY
 
     run-3:
         runs-on: ubuntu-latest
@@ -41,4 +41,4 @@ jobs:
             - create-matrix
             - consume-artifacts
         steps:
-            - run: echo yo! >> $GITHUB_SUMMARY
+            - run: echo yo! >> $GITHUB_STEP_SUMMARY
