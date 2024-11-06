@@ -22,7 +22,7 @@ jobs:
             matrix:
                 color: ${{ fromJSON(needs.create-matrix.outputs.colors) }}
         steps:
-            - name: echo color
+            - name: echo color ${{ matrix.color }}
               run: echo ${{ matrix.color }} > color
 
             - name: Produce Artifact
