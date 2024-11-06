@@ -7,20 +7,15 @@ on:
 jobs:
     create-matrix:
         runs-on: ubuntu-latest
-        outputs:
-            colors: ${{ steps.colors.outputs.colors }}
-
         strategy:
             matrix:
                 color: ["red", "blue", "green"]
 
-        name: run-${{ matrix.color }}
+        name: create
         steps:
-            - name: echo color ${{ matrix.color }}
-              run: echo ${{ matrix.color }} > color
+            - run: echo ${{ matrix.color }} > color
 
-            - name: Produce Artifact
-              uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v4
               with:
                 name: ${{ matrix.color }}
                 path: color
@@ -31,10 +26,8 @@ jobs:
             - create-matrix
 
         steps:
-          - name: Retrieve Artifact
-            uses: actions/download-artifact@v4
+          - uses: actions/download-artifact@v4
             with:
               merge-multiple: true
 
-          - name: Report Color
-            run: ls
+          - run: ls
