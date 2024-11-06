@@ -21,6 +21,7 @@ jobs:
         strategy:
             matrix:
                 color: ${{ fromJSON(needs.create-matrix.outputs.colors) }}
+        name: run-${{ matrix.color }}
         steps:
             - name: echo color ${{ matrix.color }}
               run: echo ${{ matrix.color }} > color
