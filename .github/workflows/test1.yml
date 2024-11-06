@@ -12,9 +12,11 @@ jobs:
 
     run-matrix:
         runs-on: ubuntu-latest
+        needs: create-matrix
         steps:
             - run: echo ho
     inspect:
         runs-on: ubuntu-latest
+        needs: run-matrix
         steps:
             - run: echo oh
